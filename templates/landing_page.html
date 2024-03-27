@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1>Welcome to Our Travel Community</h1>
+            <p>Embark on a journey of discovery and adventure!</p>
+            <p>Explore diverse cultures, breathtaking landscapes, and hidden gems around the globe.</p>
+            <p>Start your journey today and create unforgettable memories.</p>
+            <blockquote class="blockquote mt-5">
+                <p class="mb-0">"The world is a book, and those who do not travel read only one page." - Saint Augustine</p>
+            </blockquote>
+            {% if user.is_authenticated %}
+            <a href="{% url 'users:logout' %}" class="btn btn-outline-danger mt-3">Log out</a>
+            {% else %}
+            <p><a href="{% url 'users:register' %}" class="btn btn-outline-primary mt-3">Join Our Community</a></p>
+            <p>Already have an account? <a href="{% url 'users:login' %}" class="btn btn-outline-success">Login</a></p>
+            {% endif %}
+            <p><a href="{% url 'users:profile' %}" class="btn btn-outline-info mt-3">Your Profile</a></p>
+            <a href="{% url 'places:list' %}" class="btn btn-outline-dark mt-3">Explore Places</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

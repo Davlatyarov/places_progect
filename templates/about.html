@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    About as
+{% endblock %}
+
+{% block content %} 
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1>About us</h1>
+            <p>Welcome to our travel community!</p>
+            <p>We are passionate about exploring the world and sharing our experiences with others. Our mission is to inspire and empower people to discover new destinations, cultures and adventures.</p>
+            <p>Through our travel platform, we can connect with like-minded people, get valuable travel tips, and discover hidden gems around the world.</p>
+            <p>Join us on this exciting journey as we see the wonders of our planet together!</p>
+            <blockquote class="blockquote mt-5">
+                <p class="mb-0">"A journey is something that leaves you speechless and then turns you into a storyteller." - Ibn Battuta</p>
+            </blockquote>
+            <p>Ready to start your adventure? <a href="{% url 'places:list' %}" class="btn btn-primary mt-3">Explore places</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
