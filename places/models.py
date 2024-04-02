@@ -43,3 +43,4 @@ class PlaceComment(models.Model):
     
     def __str__(self) -> str:
         return f'{self.user.username} gave {self.stars_given} to {self.place.name}'
+

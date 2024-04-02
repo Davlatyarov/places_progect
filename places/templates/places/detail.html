@@ -48,6 +48,11 @@
                                 <p class="card-text">{{ review.comment }}</p>
                                 <p class="card-text text-muted">{{ review.stars_given }} Stars</p>
                                 <p class="card-text text-muted">Posted: {{ review.created_at }}</p>
+                                <!-- Добавление ссылок для обновления и удаления -->
+                                {% if user.is_authenticated and review.user == user %}
+                                    <a href="{% url 'places:update_comment' review.id %}" class="btn btn-sm btn-primary">Update</a>
+                                    <a href="{% url 'places:delete_comment' review.id %}" class="btn btn-sm btn-danger">Delete</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -77,3 +82,16 @@
         </nav>
     </div>
 {% endblock %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const editButtons = document.querySelectorAll('.edit-comment');
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const commentId = this.dataset.commentId;
+                const form = document.querySelector(`.update-comment-form[data-comment-id="${commentId}"]`);
+                form.style.display = 'block';
+            });
+        });
+    });
+    </script>
