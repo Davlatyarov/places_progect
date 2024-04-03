@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #apps
     'users',
     'places',
+    'api',
     
     #frameworks
     'crispy_forms',
